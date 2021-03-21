@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+          rel="shortcut icon"
+          type="image/x-icon"
+          href="https://previews.123rf.com/images/goodzone95/goodzone951803/goodzone95180300026/96725720-chatbot-icon-.jpg"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+          body {
+            font-family: monospace;
+          }
+          h1 {
+            background-color:aquamarine;
+            display: inline-block;
+            font-size: 3em;
+            margin: 0;
+            padding: 14px;
+          }
+          h3 {
+            color: black;
+            font-size: 20px;
+            margin-top: 3px;
+            text-align: center;
+          }
+          #chatbox {
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 60%;
+            margin-top: 60px;
+          }
+          #userInput {
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            margin-top: 150px;
+            margin-bottom: 5px;
+            margin-left:53px;
+          }
+          #textInput {
+            width: 100%;
+            border: none;
+            border-bottom: 3px solid black;
+            font-family: monospace;
+            font-size: 17px;
+        
+          }
+          .userText {
+            width:140%;
+            color: white;
+            font-family: monospace;
+            font-size: 17px;
+            text-align: right  ;
+            line-height: 30px;
+
+          }
+          .userText span {
+            background-color: #808080;
+            padding: 10px;
+            border-radius: 6px;
+          }
+          .botText {
+            width: 130%;
+            color: white;
+            font-family: monospace;
+            font-size: 17px;
+            text-align: left;
+            line-height: 30px;
+          }
+          .botText span {
+            width: 130%;
+            background-color: #4169e1;
+            padding: 10px;
+            border-radius: 8px;
+          }
+          #tidbit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+          }
+          .boxed {
+            
+            margin-left: auto;
+            margin-right: auto;
+            width: 33%;
+            margin-top: 60px;
+            border: 1px solid green;
+          }
+          .box {
+            border: 2px solid black;
+            width: 55%;
+            margin-left: 22.5%;
+        
+          }
+        </style>
+    </head>
+    <body>
+        <center>
+          <h1>
+            <img
+              src="https://previews.123rf.com/images/goodzone95/goodzone951803/goodzone95180300026/96725720-chatbot-icon-.jpg"
+              style="width:40px;height:40px;"
+            />IT Helpdesk Chatbot
+          </h1>
+        </center>
+    <div class="box"></div>
+        <div class="boxed">
+          <div >
+            <div id="chatbox" >
+              <img
+                src="https://previews.123rf.com/images/goodzone95/goodzone951803/goodzone95180300026/96725720-chatbot-icon-.jpg"
+                alt="CANDICE"
+                style="width:60px;height:60px;"
+              />
+              <p class="botText">
+                <span>To get started, you can ask me these following questions,<br> 1- IT ISSUES <br> 2-NON-IT ISSUES <br> 3- ABOUT THIS CHATBOT.</span>
+              </p>
+            </div>
+            <div id="userInput">
+              <input id="textInput" type="text" name="msg" placeholder="Message" />
+            </div>
+          </div>
+        </div>
+      </body>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          let res1 = rowText.toLowerCase().includes("my issue is ");
+          if(res1){
+            // run model code $.get("/predict", {rawMsg: rawText}).done(() => {
+              // output of the model
+            // })
+          }
+          //chatbot input
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatbox").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+</script>
+</html>

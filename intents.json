@@ -1,0 +1,61 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+     "responses": [ "Hello! How may I help you today? To get started, you can ask me these following questions: IT ISSUES, NON-IT ISSUES, ABOUT THIS CHATBOT."],
+     "context_set": ""
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye","bye","cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
+     "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
+     "context_set": ""
+    },
+  
+    {"tag": "name",
+     "patterns": ["what is your name", "what should I call you", "whats your name?"],
+     "responses": ["You can call me Tim.", "I'm Tim!", "I'm Tim aka Tech With Tim."],
+     "context_set": ""
+    },
+    
+    {"tag": "IT",
+     "patterns": ["IT issues", "it issues", "I would like to file an IT issue", "It is an IT issue"],
+     "responses": ["What is the issue regarding? start writing issues as- My issues is...", "Please write the issue.start writing issues as- My issues is..."],
+     "context_set": ""
+    },
+    {"tag": "NON-IT",
+     "patterns": ["NON-IT issues", "Non-IT issues","non-IT issues", "I would like to file a Non-IT issue", "It is a NON-IT issue"],
+     "responses": ["What is the issue regarding? start writing issues as- My issues is...", "Please write the issue.start writing issues as- My issues is..."],
+     "context_set": ""
+    },
+    {"tag": "issue",
+            "patterns": ["my issues is","My issues is that","My Issues Is"],
+            "responses": [ "Can you provide your email-id to notify you of updates about this issue?"],
+            "context_set": ""
+    },
+    {"tag": "priority",
+            "patterns": [ "@gmail.com"],
+            "responses": [ " Okay, Your email is noted for further interactions. What priority is this issue according to you?e.g. High, Medium, Low"],
+            "context_set": ""
+    },
+    {"tag": "option",
+            "patterns": ["High","Medium","Low"],
+            "responses": [  "Do you want me to solve this issue for you or do you want me to assign this to an employee? (Answer yes if you want me to go forward with the former,  no to assign issue to an employee)" ],
+            "context_set": ""
+    },
+    {"tag": "yes",
+            "patterns": ["yes"],
+            "responses": [  " Okay! Working on your issue. Will be back shortly ;) A ticket has been raised, Ticket no. IC71291. The status information about your issue resolution will be henceforth send on your email-id. " ],
+            "context_set": ""
+    },
+    {"tag": "no",
+            "patterns": ["no"],
+            "responses": [  " Okay! Will assign it to an available employee asap. Will be back shortly ;) A ticket has been raised, Ticket no. IC71291. The status information about your issue resolution will be henceforth send on your email-id. " ],
+            "context_set": ""
+    },
+    {"tag": "about",
+            "patterns": ["About This chatbot"],
+            "responses": [  " I am a IT Service desk Chatbot here to solve your issues as soon as possible! You can chat with me about the issues you are currently facing and I will try my best to resolve the issue and if by any chance I'm not able to resolve it for you, I could assign it to an available employee so that your issues are resolved from our side. Have a great Day! :) " ],
+            "context_set": ""
+    }
+    
+]
+}
